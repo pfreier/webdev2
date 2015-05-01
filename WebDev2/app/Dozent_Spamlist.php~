@@ -10,8 +10,4 @@ class Dozent_Spamlist extends Model {
 		return $this->hasMany('App/Email');
 	}
 
-	public function dozent(){
-		retur $this->belongsTo('App/Dozent');
-	}
-
 }
