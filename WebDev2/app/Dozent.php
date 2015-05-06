@@ -14,4 +14,8 @@ class Dozent extends Model {
 		return $this->hasMany('App/Sprechstunden');
 	}
 
+	public function spamlist(){
+		return $this->hasOne('App/Dozent_Spamlist');
+	}
+
 }
