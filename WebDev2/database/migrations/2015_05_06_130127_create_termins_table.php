@@ -24,6 +24,7 @@ class CreateTerminsTable extends Migration {
 			$table->string('kurzBetreff', 40);
 			$table->string('langbetreff', 100);
 			$table->foreign('EmailId')->references('id')->on('Email');
+			$table->boolean('besteatigt');
 		});
 	}
 
