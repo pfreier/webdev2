@@ -11,7 +11,7 @@ class Dozent_Spamlist extends Model {
 	}
 
 	public function dozent(){
-		retur $this->belongsTo('App/Dozent');
+		return $this->belongsTo('App/Dozent');
 	}
 
 }
