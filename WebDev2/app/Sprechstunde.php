@@ -13,4 +13,8 @@ class Sprechstunde extends Model {
 		return $this->belongsTo('App/Dozent');
 	}
 
+	public function termine(){
+		return $this->hasMany('App/Termin');
+	}
+
 }
