@@ -16,6 +16,12 @@ class CreateSprechstundesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->timestamps();
+			$table->foreign('dozentId')->references('id')->on('Dozent');
+			$table->timestamp('datum');
+			$table->integer('dauer');
+			$table->integer('uhrzeit');
+			$table->String('raum');
+			$table->integer('intervall');
 		});
 	}
 
