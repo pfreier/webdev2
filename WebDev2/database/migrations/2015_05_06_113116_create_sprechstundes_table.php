@@ -20,7 +20,7 @@ class CreateSprechstundesTable extends Migration {
 			$table->timestamp('datum');
 			$table->integer('dauer');
 			$table->integer('uhrzeit');
-			$table->String('raum');
+			$table->string('raum');
 			$table->integer('intervall');
 		});
 	}

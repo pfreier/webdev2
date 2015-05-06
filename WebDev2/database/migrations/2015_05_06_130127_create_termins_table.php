@@ -18,7 +18,12 @@ class CreateTerminsTable extends Migration {
 			$table->timestamps();
 			$table->foreign('sprechstundeId')->references('id')->on('Sprechstunde');
 			$table->timestamp('datum');
-			
+			$table->integer('dauer');
+			$table->string('vorname');
+			$table->string('nachname');
+			$table->string('kurzBetreff', 40);
+			$table->string('langbetreff', 100);
+			$table->foreign('EmailId')->references('id')->on('Email');
 		});
 	}
 
