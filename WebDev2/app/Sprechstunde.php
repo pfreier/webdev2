@@ -9,4 +9,8 @@ class Sprechstunde extends Model {
 		return $this->hasOne('App/Warteliste');
 	}
 
+	public function dozent(){
+		return $this->belongsTo('App/Dozent');
+	}
+
 }
