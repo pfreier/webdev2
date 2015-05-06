@@ -18,7 +18,7 @@ class CreateWartelistesTable extends Migration {
 			$table->unsignedInteger('sprechstundenID');
 			$table->foreign('sprechstundenID')->references('id')->on('Sprechstunde');
 			$table->unsignedInteger('terminID');
-			$table->foreign('teminID')->references('id')->on('termin');
+			$table->foreign('teminID')->references('id')->on('Termin');
 			$table->timestamps();
 		});
 	}
