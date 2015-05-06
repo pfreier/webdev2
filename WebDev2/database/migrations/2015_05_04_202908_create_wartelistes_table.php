@@ -16,10 +16,14 @@ class CreateWartelistesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->unsignedInteger('sprechstundenID');
-			$table->foreign('sprechstundenID')->references('id')->on('Sprechstunde');
 			$table->unsignedInteger('terminID');
-			$table->foreign('teminID')->references('id')->on('Termin');
 			$table->timestamps();
+		});
+
+		Schema::table('wartelistes', function($table)
+		{
+			$table->foreign('sprechstundenID')->references('id')->on('Sprechstunde');
+			$table->foreign('teminID')->references('id')->on('Termin');			
 		});
 	}
 

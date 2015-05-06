@@ -16,11 +16,17 @@ class CreateDozentSpamlistsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->unsignedInteger('emailID');
-			$table->foreign('emailID')->references('id')->on('Email');
 			$table->unsignedInteger('dozentID');
-			$table->foreign('dozentID')->references('id')->on('Dozent');
 			$table->timestamps();
 		});
+
+		Schema::table('dozent__spamlists', function($table)
+		{
+			
+			$table->foreign('dozentID')->references('id')->on('Dozent');
+			$table->foreign('emailID')->references('id')->on('Email');
+		});
+
 	}
 
 	/**
