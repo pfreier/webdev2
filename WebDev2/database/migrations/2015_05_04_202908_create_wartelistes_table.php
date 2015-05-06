@@ -15,7 +15,9 @@ class CreateWartelistesTable extends Migration {
 		Schema::create('wartelistes', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->foreign('sprechstundenID')->references('id')->on('sprechstund');
+			$table->unsignedInteger('sprechstundenID');
+			$table->foreign('sprechstundenID')->references('id')->on('Sprechstunde');
+			$table->unsignedInteger('terminID');
 			$table->foreign('teminID')->references('id')->on('termin');
 			$table->timestamps();
 		});

@@ -19,6 +19,7 @@ class CreateBOptionensTable extends Migration {
 			$table->boolean('02');
 			$table->boolean('03');
 			$table->boolean('04');
+			$table->unsignedInteger('dozentID');
 			$table->foreign('dozentID')->references('id')->on('dozent');
 			$table->timestamps();
 		});

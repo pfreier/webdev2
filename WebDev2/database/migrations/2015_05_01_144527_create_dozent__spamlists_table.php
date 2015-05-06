@@ -15,7 +15,9 @@ class CreateDozentSpamlistsTable extends Migration {
 		Schema::create('dozent__spamlists', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->unsignedInteger('emailID');
 			$table->foreign('emailID')->references('id')->on('Email');
+			$table->unsignedInteger('dozentID');
 			$table->foreign('dozentID')->references('id')->on('Dozent');
 			$table->timestamps();
 		});

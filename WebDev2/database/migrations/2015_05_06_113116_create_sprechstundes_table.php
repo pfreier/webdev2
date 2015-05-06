@@ -16,6 +16,7 @@ class CreateSprechstundesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->timestamps();
+			$table->unsignedInteger('dozentID');
 			$table->foreign('dozentId')->references('id')->on('Dozent');
 			$table->timestamp('datum');
 			$table->integer('dauer');
