@@ -17,7 +17,7 @@ class CreateTerminsTable extends Migration {
 			$table->increments('id');
 			$table->timestamps();
 			$table->foreign('sprechstundeId')->references('id')->on('Sprechstunde');
-			
+			$table->timestamp('datum');
 			
 		});
 	}
