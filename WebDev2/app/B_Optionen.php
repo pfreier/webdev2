@@ -2,12 +2,9 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Sprechstunde extends Model {
-
-	//
-	public function warteliste(){
-		return $this->hasOne('App/Warteliste');
-	}
+class B_Optionen extends Model {
+	
+	//Benachrichtigungseinstellungen eines Dozents
 
 	public function dozent(){
 		return $this->belongsTo('App/Dozent');
