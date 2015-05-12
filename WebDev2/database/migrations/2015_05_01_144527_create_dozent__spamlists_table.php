@@ -16,6 +16,8 @@ class CreateDozentSpamlistsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->timestamps();
+			$table->integer('emailID')->unsigned();
+			$table->integer('dozentID')->unsigned();
 		});
 
 	}

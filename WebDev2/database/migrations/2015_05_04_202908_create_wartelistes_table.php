@@ -16,6 +16,8 @@ class CreateWartelistesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->timestamps();
+			$table->integer('sprechstundeID')->unsigned();
+			$table->integer('terminID')->unsigned();
 		});
 	}
 
