@@ -21,6 +21,7 @@ class CreateSprechstundesTable extends Migration {
 			$table->integer('uhrzeit');
 			$table->string('raum');
 			$table->integer('intervall');
+			$table->integer('dozentID')->unsigned();
 		});
 	}
 
