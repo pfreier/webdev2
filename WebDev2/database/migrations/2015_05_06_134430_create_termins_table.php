@@ -16,22 +16,14 @@ class CreateTerminsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->timestamps();
-			$table->integer('sprechstundeID')->unsigned();
 			$table->timestamp('datum');
 			$table->integer('dauer');
 			$table->string('vorname');
 			$table->string('nachname');
 			$table->string('kurzBetreff', 40);
 			$table->string('langbetreff', 100);
-			$table->integer('EmailID')->unsigned();
 			$table->boolean('besteatigt');
 			$table->string('tokenCode', 20);
-		});
-
-		Schema::table('termins', function($table)
-		{
-			$table->foreign('sprechstundeID')->references('id')->on('Sprechstunde');
-			$table->foreign('EmailID')->references('id')->on('Email');
 		});
 	}
 

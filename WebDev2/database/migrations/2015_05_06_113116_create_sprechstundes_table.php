@@ -16,17 +16,11 @@ class CreateSprechstundesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->timestamps();
-			$table->integer('dozentID')->unsigned();
 			$table->timestamp('datum');
 			$table->integer('dauer');
 			$table->integer('uhrzeit');
 			$table->string('raum');
 			$table->integer('intervall');
-		});
-
-		Schema::table('sprechstundes', function($table)
-		{
-			$table->foreign('dozentId')->references('id')->on('Dozent');
 		});
 	}
 
