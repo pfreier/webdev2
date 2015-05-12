@@ -17,6 +17,7 @@ class CreateDozentsTable extends Migration {
 			$table->increments('id');
 			$table->string('vorname');
 			$table->string('nachname');
+			$table->integer('userID')->unsigned();
 			$table->timestamps();
 		});
 	}
