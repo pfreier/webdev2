@@ -7,15 +7,15 @@ class Dozent extends Model {
 	// Ein Dozent
 
 	public function b_optionen(){
-		return $this->hasOne('App/B_Optionen');
+		return $this->hasOne('App/BOption');
 	}
 
 	public function sprechstunden(){
-		return $this->hasMany('App/Sprechstunden');
+		return $this->hasMany('App/Sprechstunde');
 	}
 
 	public function spamlist(){
-		return $this->hasOne('App/Dozent_Spamlist');
+		return $this->hasOne('App/Spamlist');
 	}
 
 }
