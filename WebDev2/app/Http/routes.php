@@ -13,11 +13,7 @@
 
 Route::get('/', 'WelcomeController@index');
 
-Route::get('/Sprechstunde', 'SprechstundenController@hallosagen');
-
 Route::get('home', 'HomeController@index');
-
-Route::get('test', 'TestController@index');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
