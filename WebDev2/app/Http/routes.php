@@ -19,13 +19,14 @@
  * informing you which URIs and verbs they handle.
  * 
  **/
-Route::resource('users', 'UserController');
-Route::resource('users.sprechstunde', 'SprechstundenController');
-Route::resource('users.sprechstunde.termin', 'TerminController');
-Route::resource('users.einstellungen', 'BOptionController');
 
+
+Route::resource('user', 'UserController');
+Route::resource('user.sprechstunde', 'SprechstundenController');
+Route::resource('user.sprechstunde.termin', 'TerminController');
+Route::resource('user.sprechstunde.warteliste', 'WartelistenController');
+Route::resource('user.einstellungen', 'BOptionController');
 Route::resource('termin', 'TerminController');
-
 Route::resource('dozent.sprechstunde', 'SprechstundenController');
 
 
