@@ -10,12 +10,22 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+/*
+ * This single route declaration creates multiple routes 
+ * to handle a variety of RESTful actions on the 
+ * user resource. 
+ * Likewise, the generated controller will already have 
+ * stubbed methods for each of these actions with notes 
+ * informing you which URIs and verbs they handle.
+ * 
+ **/
+Route::resource('users', 'UserController');
+Route::resource('users.sprechstunde', 'SprechstundenController');
+Route::resource('users.sprechstunde.termin', 'TerminController');
+Route::resource('users.einstellungen', 'BOptionController');
 
-Route::get('/', 'WelcomeController@index');
+Route::resource('termin', 'TerminController');
 
-Route::get('home', 'HomeController@index');
+Route::resource('dozent.sprechstunde', 'SprechstundenController');
 
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
+
