@@ -2,10 +2,10 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Dozent;
 use Illuminate\Http\Request;
 
-class UserController extends Controller {
+class DozentController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -43,10 +43,12 @@ class UserController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show(Dozent $dozent)
 	{
-		//
+		//$result = Dozent::whereName($dozent)->first();
+		return 'dozent';
 	}
+	
 
 	/**
 	 * Show the form for editing the specified resource.

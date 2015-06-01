@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Song;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -43,9 +44,9 @@ class SprechstundenController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($user, $id)
+	public function show(Sprechstunde $id)
 	{
-		return 'der benutzer ' .$user .' mit der Sprechstunde ' .$id;
+		
 	}
 
 	/**

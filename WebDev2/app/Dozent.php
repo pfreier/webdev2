@@ -1,7 +1,6 @@
 <?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
 class Dozent extends Model {
 	
 	// Ein Dozent
