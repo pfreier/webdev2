@@ -1,5 +1,9 @@
-@extends('app')
-<div id="sidebar-wrapper">
+@extends('default')
+@section('navigation')
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
                     <a href="./index.php">
@@ -25,19 +29,19 @@
 
             </ul>
         </div>
+        <!-- /#sidebar-wrapper -->
+@endsection 
+
 
 @section('content')
-<div class="container">
-	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
-			<div class="panel panel-default">
-				<div class="panel-heading">Home</div>
-
-				<div class="panel-body">
-					You are logged in!
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+ <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Sprechstundenverwaltung</h1>
+                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Menü</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 @endsection

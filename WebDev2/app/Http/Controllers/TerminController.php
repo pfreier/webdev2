@@ -14,7 +14,7 @@ class TerminController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		return view('sprechstunden.terminverwaltung');
 	}
 
 	/**
@@ -43,10 +43,9 @@ class TerminController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($user,$Sid, $Tid)
+	public function show($id)
 	{
-		return 'Der Benutzer ' .$user . ' mit der Sprechstunde '
-				.$Sid .' und dem Termin ' .$Tid;
+		return view('student.termin');
 	}
 
 	/**

@@ -15,7 +15,7 @@ class SprechstundenController extends Controller {
 	 */
 	public function index()
 	{
-		return view('sprechstunden.index');
+		return view('sprechstunden.sprechstundenverwaltung');
 	}
 
 	/**
@@ -44,9 +44,9 @@ class SprechstundenController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show(Sprechstunde $id)
+	public function show($dozent,$id)
 	{
-		
+		return  ' ' .$dozent . ' id '. $id;
 	}
 
 	/**

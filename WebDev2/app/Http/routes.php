@@ -10,21 +10,16 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
 //Route::get('user', ['middleware' => 'DozentAuth', 'uses' => 'UserController@index']);
-Route::get('/home', 'WelcomeController@index');
+Route::get('/', 'WelcomeController@index');
 //Benutzername als Wildcard
 Route::pattern('dozent','[a-z]+');
 //Datum als Wildcard Datumsformat TTMMJJJJ
 Route::pattern('sprechstunde','[0-9]+');
 //Datum als Wildcard Datumsformat TTMMJJJJ
-Route::pattern('termin','[0-9]+');
+Route::pattern('termine','[0-9]+');
 
-
-//Route Model Binding
-Route::bind('dozent', function($vorname){
-	return App\Dozent::where('vorname',$vorname)->first();
-});
+Route::get('/auth/login', 'UserController@index');
 
 
 /*
@@ -36,7 +31,13 @@ Route::bind('dozent', function($vorname){
  * informing you which URIs and verbs they handle.
  * 
  **/
-Route::resource('login', 'UserController',[
+
+Route::get('/login', 'SessionController@create');
+Route::get('/logout', 'SessionController@destroy');
+
+Route::resource('sessions', 'SessionController');
+
+Route::resource('user', 'UserController',[
 	'names' => [
 		//Laden der Index Page
 		'index'		=>'index_page',
@@ -44,9 +45,10 @@ Route::resource('login', 'UserController',[
 		'create'	=>'dozent_erstellen',
 		//Eingaben des Dozenten speichern und einen 
 		//neuen Benutzer anlegen
-		'store'		=>'dozent_speichern'	
+		'store'		=>'dozent_speichern',
+		'show'		=>'user_anzeigen'
 	],
-	'only' => ['index','create','store']
+	'only' => ['index','create','store','show']
 		
 ]);
 
@@ -73,14 +75,15 @@ Route::resource('dozent.sprechstunde', 'SprechstundenController',[
 		'update'  =>'sprechstunde_aktualisieren'
 	]
 ]);
+
 Route::resource('dozent.sprechstunde.termine', 'TerminController',[
 		'names' => [
-				'index'   =>'terminverwaltung',
-				'destroy' =>'termin_absagen',
+				'index'  	=>'terminverwaltung',
+				'destroy' 	=>'termin_absagen',
 				//Aktualisiert den Termin. Bsp Termin wird aus der Warteliste geholt.
-				'update'  =>'termin_aktualisieren'
+				'update' 	=>'termin_aktualisieren'	
 		],
-		'except' => ['create','store','show','edit']
+		'except' => ['create','store','edit','show']
 ]);
 
 // Route::resource('user.einstellungen', 'BOptionController',[

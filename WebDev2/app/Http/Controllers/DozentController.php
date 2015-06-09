@@ -43,10 +43,9 @@ class DozentController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show(Dozent $dozent)
+	public function show($id)
 	{
-		//$result = Dozent::whereName($dozent)->first();
-		return 'dozent';
+		return view('dozent.index');
 	}
 	
 

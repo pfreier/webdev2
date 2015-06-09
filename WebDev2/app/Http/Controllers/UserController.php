@@ -14,7 +14,7 @@ class UserController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		return view('auth.login');
 	}
 
 	/**
@@ -24,7 +24,7 @@ class UserController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return 'hier kann ein benutzer angelegt werden';
 	}
 
 	/**
@@ -45,7 +45,7 @@ class UserController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		return User::find($id);
 	}
 
 	/**
@@ -67,7 +67,7 @@ class UserController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+		
 	}
 
 	/**

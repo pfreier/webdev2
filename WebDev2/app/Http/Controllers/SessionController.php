@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class EinstellungenController extends Controller {
+class SessionController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -45,7 +45,7 @@ class EinstellungenController extends Controller {
 	 */
 	public function show($id)
 	{
-		return view('dozent.einstellungen');
+		//
 	}
 
 	/**
