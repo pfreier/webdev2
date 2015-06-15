@@ -16,7 +16,6 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Lato', sans-serif;
     font-weight: 300;
     color: #444;
-    text-align: center;
 }
 
 h1 {
@@ -89,7 +88,7 @@ a:after {
   border-color: #444;
 }
 form.signup {
-	margin-top: 15px;
+	margin-top: 30px;
 }
 form.signup button.btn {
 	text-transform: uppercase;
@@ -97,7 +96,6 @@ form.signup button.btn {
 }
 form.signup input.form-control:focus {
 	border-color: #fd680e;
-	
 }
 
 
@@ -116,7 +114,7 @@ a.navbar-brand:hover {
 
 #header {
 	background-color: #444;
-	background: url(/./images/main-bg.jpg) no-repeat center top;
+	background: url(../img/main-bg.jpg) no-repeat center top;
 	margin-top: 20px;
 	padding-top: 150px;
 	background-attachment: relative;
@@ -182,6 +180,11 @@ h2.subtitle {
   background-color: #b7cb1b;
 }
 
+/* footer */
+#footer {
+	background: #c0c0c0;
+	padding: 100px 0 5px;
+}
 
 p.copyright {
 	color: #fff;

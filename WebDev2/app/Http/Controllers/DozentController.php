@@ -14,7 +14,7 @@ class DozentController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		
 	}
 
 	/**
@@ -24,7 +24,7 @@ class DozentController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return view('dozent.register');
 	}
 
 	/**
@@ -34,7 +34,7 @@ class DozentController extends Controller {
 	 */
 	public function store()
 	{
-		//
+
 	}
 
 	/**
@@ -43,9 +43,12 @@ class DozentController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
-	{
-		return view('dozent.index');
+	public function show($name)
+	{	
+		$userdata = array(
+				'name'  => $name,
+		);
+		return view('dozent.index')->with($userdata);;
 	}
 	
 

@@ -26,11 +26,12 @@
     height: 100%;
     margin-left: -250px;
     overflow-y: auto;
-    background: #c0c0c0;
+    background: #e5e5e5;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
+    
 }
 
 #wrapper.toggled #sidebar-wrapper {
@@ -67,7 +68,7 @@
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
-    color: #2e1572;
+    color: #4d4d4d;
 }
 
 .sidebar-nav li a:hover {
@@ -94,6 +95,10 @@
 .sidebar-nav > .sidebar-brand a:hover {
     color: #fff;
     background: none;
+}
+
+.form-group-add-Event{
+	padding-right: 70%;
 }
 
 @media(min-width:768px) {

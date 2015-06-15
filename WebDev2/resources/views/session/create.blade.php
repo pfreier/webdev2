@@ -1,5 +1,14 @@
-@extends('defaultLayout')
+@extends('default')
+@section('navigation')
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+	<ul class="sidebar-nav">
+		<li class="sidebar-brand"><a href="{{ url('/') }}">FH Hof</a>
+		</li>
 
+	</ul>
+</div>
+@endsection
 @section('content')
 <div class="container-fluid">
 	<div class="row">

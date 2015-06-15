@@ -19,9 +19,6 @@ Route::pattern('sprechstunde','[0-9]+');
 //Datum als Wildcard Datumsformat TTMMJJJJ
 Route::pattern('termine','[0-9]+');
 
-Route::get('/auth/login', 'UserController@index');
-
-
 /*
  * This single route declaration creates multiple routes 
  * to handle a variety of RESTful actions on the 
@@ -32,8 +29,10 @@ Route::get('/auth/login', 'UserController@index');
  * 
  **/
 
-Route::get('/login', 'SessionController@create');
-Route::get('/logout', 'SessionController@destroy');
+
+//Zum ein und ausloggen eines Users
+Route::get('login', 'SessionController@create');
+Route::get('logout', 'SessionController@destroy');
 
 Route::resource('sessions', 'SessionController');
 
@@ -54,7 +53,7 @@ Route::resource('user', 'UserController',[
 
 Route::resource('dozent', 'DozentController',[
 		'names' => [
-			//Laedt die Ansicht des Benutzers
+			//Laedt die Übersicht des Benutzers
 			'show'	  =>'dozent_laden',
 			//'destroy' =>'dozent_loeschen',
 		],

@@ -12,6 +12,12 @@ class UserController extends Controller {
 	 *
 	 * @return Response
 	 */
+	public function login()
+	{
+		return view('dozent.login');
+	}
+	
+	
 	public function index()
 	{
 		return view('auth.login');
@@ -24,7 +30,7 @@ class UserController extends Controller {
 	 */
 	public function create()
 	{
-		return 'hier kann ein benutzer angelegt werden';
+		return view('dozent.register');
 	}
 
 	/**

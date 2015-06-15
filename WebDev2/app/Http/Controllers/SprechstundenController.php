@@ -13,9 +13,10 @@ class SprechstundenController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
-	{
-		return view('sprechstunden.sprechstundenverwaltung');
+	public function index($name)
+	{	
+		
+		return view('sprechstunden.sprechstundenverwaltung')->withName($name);
 	}
 
 	/**
