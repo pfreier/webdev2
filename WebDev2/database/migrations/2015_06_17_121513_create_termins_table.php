@@ -15,6 +15,7 @@ class CreateTerminsTable extends Migration {
 		Schema::create('termins', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->integer('sprechstundenID')->unsigned();
 			$table->timestamps();
 			$table->timestamp('datum');
 			$table->integer('dauer');
@@ -24,6 +25,11 @@ class CreateTerminsTable extends Migration {
 			$table->string('langbetreff', 100);
 			$table->boolean('besteatigt');
 			$table->string('tokenCode', 20);
+		});
+		
+		Schema::table('termins', function($table)
+		{
+			$table->foreign('sprechstundenID')->references('id')->on('sprechstundes');
 		});
 	}
 

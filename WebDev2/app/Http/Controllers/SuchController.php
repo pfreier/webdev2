@@ -43,9 +43,15 @@ class SuchController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id,$name)
+	public function show()
 	{
-		return view('student.suche')->withName($name);
+		$sprechstunden = DB::table('sprechstundes')
+							->whereExists(function($query){
+								$query->select(DB::raw(1))
+								->from('dozents')
+								->whereRaw('sprechstundes.dozentID = sprechstundes.id');	
+							})->get();
+							
 	}
 
 	/**

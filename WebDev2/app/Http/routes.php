@@ -13,7 +13,6 @@
 //Route::get('user', ['middleware' => 'DozentAuth', 'uses' => 'UserController@index']);
 Route::get('/', 'WelcomeController@index');
 //Benutzername als Wildcard
-Route::pattern('dozent','[a-z]+');
 //Datum als Wildcard Datumsformat TTMMJJJJ
 Route::pattern('sprechstunde','[0-9]+');
 //Datum als Wildcard Datumsformat TTMMJJJJ
@@ -38,34 +37,26 @@ Route::resource('sessions', 'SessionController');
 
 Route::resource('user', 'UserController',[
 	'names' => [
-		//Laden der Index Page
 		'index'		=>'index_page',
-		//Dozent klickt auf Registrieren 
 		'create'	=>'dozent_erstellen',
-		//Eingaben des Dozenten speichern und einen 
-		//neuen Benutzer anlegen
-		'store'		=>'dozent_speichern',
-		'show'		=>'user_anzeigen'
+		'store'		=>'dozent_speichern'
 	],
-	'only' => ['index','create','store','show']
+	'only' => ['index','create','store',]
 		
 ]);
 
 Route::resource('dozent', 'DozentController',[
 		'names' => [
-			//Laedt die Übersicht des Benutzers
 			'show'	  =>'dozent_laden',
-			//'destroy' =>'dozent_loeschen',
+			'index'	  =>'dozent_laden'
 		],
-		'only' => ['show']
+		'only' => ['show','index']
 
 ]);
 
 Route::resource('dozent.sprechstunde', 'SprechstundenController',[
 	'names' => [
-		//Laedt die Sprechstundenverwaltung
 		'index'   =>'sprechstundenverwaltung',
-		//oeffnet das Formular zum anlegen einer Sprechstunde
 		'create'  =>'sprechstunde_anlegen',
 		'store'	  =>'sprechstunde_speichern',
 		'show'	  =>'sprechstunde_laden',
@@ -82,53 +73,49 @@ Route::resource('dozent.sprechstunde.termine', 'TerminController',[
 				//Aktualisiert den Termin. Bsp Termin wird aus der Warteliste geholt.
 				'update' 	=>'termin_aktualisieren'	
 		],
-		'except' => ['create','store','edit','show']
+		'only' => ['index','destroy','update']
 ]);
 
-// Route::resource('user.einstellungen', 'BOptionController',[
-// 		'names' => [
-// 				'index'   =>'dozent_einstellungen',
-// 				'update'  =>'einstellungen_aktualisieren'
-// 		],
-// 		'except' => ['create','store','show','edit','destroy']
-// ]);
-
-Route::resource('dozent.einstellungen.spamlist', 'EinstellungenController',[
+Route::resource('dozent.einstellungen', 'BOptionController',[
 		'names' => [
-				'show'   =>'einstellungen_laden',
+				'index'   =>'dozent_einstellungen',
+				'update'  =>'einstellungen_aktualisieren'
+		],
+		'only' => ['index','update']
+]);
+
+Route::resource('dozent.spamlist', 'SpamlistController',[
+		'names' => [
+				'show'   =>'spamlist_laden',
 				'edit'	 =>'spamlist_bearbeiten',
-				'update' =>'einstellungen_aktualisieren'
+				'update' =>'spamlist_aktualisieren'
 		],
 		'only' => ['show','edit','update']
 ]);
 
-Route::resource('termin', 'TerminController',[
+Route::resource('terminsuche', 'StudentenTerminController',[
 		'names' => [
 				'show'   =>'termin_laden',
-				'update' =>'termin_aktualisieren'
+				'destroy' =>'termin_absagen'
 		],
-		'only' => ['show','update']
+		'only' => ['show','destroy']
 ]);
 
-Route::resource('suche.dozent', 'SuchController',[
+Route::resource('dozentsuche', 'SuchController',[
 		'names' => [
 				'show'   =>'dozent_sprechstunden_suchergebniss',
 		],
 		'only' => ['show']
 ]);
 
-Route::resource('suche.dozent.sprechstunde.termin', 'SuchController',[
+Route::resource('dozentsuche.sprechstunde.termin', 'SuchController',[
 		'names' => [
-				'create'   =>'termin_erstellen',
-				'store'   =>'termin_speichern'				
+				
+				'index'		=>'termin_erstellen_ansicht',
+				'create'   	=>'termin_erstellen',
+				'store'   	=>'termin_speichern'				
 		],
 		'only' => ['create','store']
 ]);
 
 
-Route::resource('dozent.suche.sprechstunde', 'SuchController',[
-		'names' => [
-				'show'   =>'dozent_sprechstundenListe',
-		],
-		'only' => ['show']
-]);

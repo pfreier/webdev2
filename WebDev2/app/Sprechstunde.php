@@ -4,7 +4,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sprechstunde extends Model {
 
-	//
+	protected $fillable = array('datum', 'dauer', 'uhrzeit', 'raum', 'intervall');
+	
+	
+	
 	public function warteliste(){
 		return $this->hasOne('App/Warteliste');
 	}

@@ -14,7 +14,7 @@ class DozentController extends Controller {
 	 */
 	public function index()
 	{
-		
+		return Dozent::all();
 	}
 
 	/**
@@ -43,12 +43,9 @@ class DozentController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($name)
+	public function show($id)
 	{	
-		$userdata = array(
-				'name'  => $name,
-		);
-		return view('dozent.index')->with($userdata);;
+		return Dozent::find($id);
 	}
 	
 

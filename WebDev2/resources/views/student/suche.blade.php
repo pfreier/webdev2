@@ -57,8 +57,6 @@
 						<td>5</td>
 					</tr>
 				</table>
-				<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">
-					Sprechstunde wählen</a>
 				<p>
 				
 				

@@ -3,6 +3,8 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\BOption;
+
 use Illuminate\Http\Request;
 
 class BOptionController extends Controller {
@@ -12,9 +14,9 @@ class BOptionController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index($id)
 	{
-		//
+		return BOption::where('dozentID', '=', $id)->get();
 	}
 
 	/**

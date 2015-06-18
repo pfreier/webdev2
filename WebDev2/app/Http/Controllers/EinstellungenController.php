@@ -14,7 +14,6 @@ class EinstellungenController extends Controller {
 	 */
 	public function index()
 	{
-		//
 	}
 
 	/**

@@ -7,84 +7,68 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller {
 
+
+	protected $user;
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
+
+
 	public function login()
 	{
 		return view('dozent.login');
 	}
-	
-	
+
+
 	public function index()
 	{
-		return view('auth.login');
-	}
+		// 		try {
+		// 			$statusCode = 200;
+		// 			$response = [
+		// 				'user' => []
+		// 			];
+		// 			$users = User::all();
+			
+		// 			foreach ($users as $user){
+		// 				$response['user'][] = [
+		// 					'name' => $user->name,
+		// 					'email' => $user->email
+		// 				];
+		// 			}
+			
+		// 		} catch (Exception $e) {
+		// 			$statusCode = 404;
+		// 		}finally {
+		// 			return Response::json($response,$statusCode);
+		// 		}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		return view('dozent.register');
-	}
+		return User::all();
+}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
+/**
+ * Show the form for creating a new resource.
+ *
+ * @return Response
+ */
+public function create()
+{
+	return view('dozent.register');
+}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		return User::find($id);
-	}
+/**
+ * Store a newly created resource in storage.
+ *
+ * @return Response
+ */
+public function store()
+{
+	$input = Input::all();
+	User::create($input);	
+}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		
-	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
-
+	
 }

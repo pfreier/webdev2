@@ -1,7 +1,8 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\Song;
+use App\Sprechstunde;
+use App\Dozent;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -13,10 +14,9 @@ class SprechstundenController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index($name)
-	{	
-		
-		return view('sprechstunden.sprechstundenverwaltung')->withName($name);
+	public function index($id)
+	{
+		return Sprechstunde::where('dozentID', '=', $id)->get();
 	}
 
 	/**
@@ -47,7 +47,7 @@ class SprechstundenController extends Controller {
 	 */
 	public function show($dozent,$id)
 	{
-		return  ' ' .$dozent . ' id '. $id;
+		
 	}
 
 	/**
@@ -58,7 +58,7 @@ class SprechstundenController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		return 'edit the user';
 	}
 
 	/**

@@ -2,17 +2,18 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Termin;
 
 use Illuminate\Http\Request;
 
-class TerminController extends Controller {
+class StudentenTerminController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index($tokenCode)
 	{
 		
 	}
@@ -34,7 +35,7 @@ class TerminController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		
 	}
 
 	/**
@@ -43,9 +44,9 @@ class TerminController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($tokenCode)
 	{
-		return view('student.termin');
+		return Termin::where('tokenCode', '=', $tokenCode)->get();
 	}
 
 	/**
