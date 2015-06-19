@@ -3,7 +3,16 @@
 use Illuminate\Database\Eloquent\Model;
 class Dozent extends Model {
 	
-	// Ein Dozent
+
+	protected $table = 'dozents';
+	
+	protected $fillable = ['vorname', 'nachname'];
+	
+	protected $hidden = ['created_at', 'updated_at','id','userID'];
+	
+	public function user(){
+		return $this->belongsTo('App/User');
+	}
 
 	public function b_optionen(){
 		return $this->hasOne('App/BOption');

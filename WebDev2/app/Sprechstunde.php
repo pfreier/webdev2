@@ -3,10 +3,13 @@
 use Illuminate\Database\Eloquent\Model;
 
 class Sprechstunde extends Model {
+	
 
-	protected $fillable = array('datum', 'dauer', 'uhrzeit', 'raum', 'intervall');
+	protected $table = 'sprechstundes';
 	
+	protected $fillable = ['datum','dauer', 'uhrzeit', 'raum', 'intervall'];
 	
+	protected $hidden = ['created_at', 'updated_at','id','dozentID'];
 	
 	public function warteliste(){
 		return $this->hasOne('App/Warteliste');

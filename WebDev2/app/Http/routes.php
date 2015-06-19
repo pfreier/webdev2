@@ -10,14 +10,6 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-//Route::get('user', ['middleware' => 'DozentAuth', 'uses' => 'UserController@index']);
-Route::get('/', 'WelcomeController@index');
-//Benutzername als Wildcard
-//Datum als Wildcard Datumsformat TTMMJJJJ
-Route::pattern('sprechstunde','[0-9]+');
-//Datum als Wildcard Datumsformat TTMMJJJJ
-Route::pattern('termine','[0-9]+');
-
 /*
  * This single route declaration creates multiple routes 
  * to handle a variety of RESTful actions on the 
@@ -27,13 +19,6 @@ Route::pattern('termine','[0-9]+');
  * informing you which URIs and verbs they handle.
  * 
  **/
-
-
-//Zum ein und ausloggen eines Users
-Route::get('login', 'SessionController@create');
-Route::get('logout', 'SessionController@destroy');
-
-Route::resource('sessions', 'SessionController');
 
 Route::resource('user', 'UserController',[
 	'names' => [

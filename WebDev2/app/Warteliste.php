@@ -4,7 +4,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Warteliste extends Model {
 	
-	//Warteliste einer Sprechstunde
+
+	protected $table = 'wartelistes';
+	
+	protected $fillable = ['terminID','sprechstundeID'];
+	
+	protected $hidden = ['created_at', 'updated_at','id'];
 
 	public function termine(){
 		return $this->hasMany('App/Termine');

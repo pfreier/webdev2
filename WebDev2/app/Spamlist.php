@@ -4,7 +4,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Spamlist extends Model {
 
-	//Die Spamliste eines Dozenten.
+
+	protected $table = 'spamlists';
+	
+	protected $fillable = ['dozentID','emailID'];
+	
+	protected $hidden = ['created_at', 'updated_at','id'];
 
 	public function emails(){
 		return $this->hasMany('App/Email');
