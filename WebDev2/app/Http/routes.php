@@ -22,8 +22,8 @@
 
 Route::resource('user', 'UserController',[
 	'names' => [
-		'index'		=>'index_page',
-		'create'	=>'dozent_erstellen',
+		'index'		=>'user',
+		'create'	=>'users.create',
 		'store'		=>'dozent_speichern'
 	],
 	'only' => ['index','create','store',]
@@ -51,14 +51,15 @@ Route::resource('dozent.sprechstunde', 'SprechstundenController',[
 	]
 ]);
 
-Route::resource('dozent.sprechstunde.termine', 'TerminController',[
+Route::resource('dozent.sprechstunde.termin', 'TerminController',[
 		'names' => [
 				'index'  	=>'terminverwaltung',
+				'show'		=>'terminanzeige',
 				'destroy' 	=>'termin_absagen',
 				//Aktualisiert den Termin. Bsp Termin wird aus der Warteliste geholt.
 				'update' 	=>'termin_aktualisieren'	
 		],
-		'only' => ['index','destroy','update']
+		'only' => ['index','destroy','update','show']
 ]);
 
 Route::resource('dozent.einstellungen', 'BOptionController',[

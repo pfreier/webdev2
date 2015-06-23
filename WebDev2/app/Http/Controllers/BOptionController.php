@@ -7,6 +7,7 @@ use App\BOption;
 
 use Illuminate\Http\Request;
 
+
 class BOptionController extends Controller {
 
 	/**

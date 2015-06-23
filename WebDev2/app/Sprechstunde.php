@@ -9,7 +9,7 @@ class Sprechstunde extends Model {
 	
 	protected $fillable = ['datum','dauer', 'uhrzeit', 'raum', 'intervall'];
 	
-	protected $hidden = ['created_at', 'updated_at','id','dozentID'];
+	protected $hidden = ['created_at', 'updated_at'];
 	
 	public function warteliste(){
 		return $this->hasOne('App/Warteliste');

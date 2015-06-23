@@ -9,7 +9,7 @@ class Termin extends Model {
 	
 	protected $fillable = ['dauer','vorname', 'nachname', 'kurzBetreff', 'langBetreff','besteatigt',''];
 	
-	protected $hidden = ['created_at', 'updated_at','id','sprechstundenID'];
+	protected $hidden = ['created_at', 'updated_at','id'];
 	
 	
 	public function sprechstunde(){

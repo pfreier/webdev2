@@ -2,6 +2,9 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Termin;
+use App\Dozent;
+use App\Sprechstunde;
 
 use Illuminate\Http\Request;
 
@@ -43,9 +46,9 @@ class TerminController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($dozentID,$sprechstundenID,$terminID)
 	{
-		return view('student.termin');
+		return Termin::find($terminID);
 	}
 
 	/**

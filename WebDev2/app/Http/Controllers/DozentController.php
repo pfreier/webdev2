@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Dozent;
 use Illuminate\Http\Request;
 
+
 class DozentController extends Controller {
 
 	/**
@@ -14,6 +15,29 @@ class DozentController extends Controller {
 	 */
 	public function index()
 	{
+// 		try{
+// 			$statusCode = 200;
+// 			$response = [
+// 					'dozents'  => []
+// 			];
+
+// 			$dozents = Dozent::all()->take(4);
+
+// 			foreach($dozents as $dozent){
+
+// 				$response['dozents'][] = [
+// 						'id' => $dozent->id,
+// 						'vorname' => $dozent->vorname,
+// 						'nachname' => $dozent->nachname,
+// 						'userID' => $dozent->userID,
+// 				];
+// 			}
+
+// 		}catch (Exception $e){
+// 			$statusCode = 400;
+// 		}finally{
+// 			return Response::json($response, $statusCode);
+// 		}
 		return Dozent::all();
 	}
 
@@ -34,7 +58,7 @@ class DozentController extends Controller {
 	 */
 	public function store()
 	{
-
+	
 	}
 
 	/**
@@ -44,10 +68,30 @@ class DozentController extends Controller {
 	 * @return Response
 	 */
 	public function show($id)
-	{	
+	{
+		
+// 		try{
+// 			$dozent = Dozent::find($id);
+// 			$statusCode = 200;
+// 			$response = [ "dozent" => [
+// 					'id' => (int) $id,
+// 					'vorname' => (int) $dozent->user_id,
+// 					'nachname' => $dozent->title,
+// 					'userID' => $dozent->url
+// 			]];
+		
+// 		}catch(Exception $e){
+// 			$response = [
+// 					"error" => "File doesn`t exists"
+// 			];
+// 			$statusCode = 404;
+// 		}finally{
+// 			return Response::json($response, $statusCode);
+// 		}
+		
 		return Dozent::find($id);
 	}
-	
+
 
 	/**
 	 * Show the form for editing the specified resource.

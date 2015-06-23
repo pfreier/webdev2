@@ -8,7 +8,7 @@ class Dozent extends Model {
 	
 	protected $fillable = ['vorname', 'nachname'];
 	
-	protected $hidden = ['created_at', 'updated_at','id','userID'];
+	protected $hidden = ['created_at', 'updated_at'];
 	
 	public function user(){
 		return $this->belongsTo('App/User');

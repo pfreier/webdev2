@@ -3,10 +3,7 @@
 use App\Http\Requests;
 use App\Sprechstunde;
 use App\Dozent;
-use App\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
-
+use App\Termin;
 class SprechstundenController extends Controller {
 
 	/**
@@ -45,9 +42,9 @@ class SprechstundenController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($dozent,$id)
+	public function show($dozentID,$sprechstundenID)
 	{
-		
+		return Termin::where('sprechstundenID', '=', $sprechstundenID)->get();
 	}
 
 	/**

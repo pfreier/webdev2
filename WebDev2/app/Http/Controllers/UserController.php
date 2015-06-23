@@ -8,12 +8,7 @@ use Illuminate\Http\Request;
 class UserController extends Controller {
 
 
-	protected $user;
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
+
 
 
 	public function login()
@@ -24,51 +19,33 @@ class UserController extends Controller {
 
 	public function index()
 	{
-		// 		try {
-		// 			$statusCode = 200;
-		// 			$response = [
-		// 				'user' => []
-		// 			];
-		// 			$users = User::all();
-			
-		// 			foreach ($users as $user){
-		// 				$response['user'][] = [
-		// 					'name' => $user->name,
-		// 					'email' => $user->email
-		// 				];
-		// 			}
-			
-		// 		} catch (Exception $e) {
-		// 			$statusCode = 404;
-		// 		}finally {
-		// 			return Response::json($response,$statusCode);
-		// 		}
-
 		return User::all();
-}
+	}
 
-/**
- * Show the form for creating a new resource.
- *
- * @return Response
- */
-public function create()
-{
-	return view('dozent.register');
-}
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return Response
+	 */
+	public function create()
+	{
+		
+	}
 
-/**
- * Store a newly created resource in storage.
- *
- * @return Response
- */
-public function store()
-{
-	$input = Input::all();
-	User::create($input);	
-}
-
-
-
-	
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @return Response
+	 */
+	public function store()
+	{
+		User::create(array(
+				'name' => Input::get('name'),
+				'email' => Input::get('email'),
+				'password' => Input::get('password')
+		));
+		
+		return Response::json(array('success' => true));
+		
+	}
 }

@@ -9,7 +9,7 @@ class BOption extends Model {
 
 	protected $fillable = ['option1', 'option2', 'option3', 'option4'];
 
-	protected $hidden = ['created_at', 'updated_at','id','dozentID'];
+	protected $hidden = ['created_at', 'updated_at','id'];
 	
 	
 	public function dozent(){
