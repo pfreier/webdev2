@@ -71,15 +71,17 @@ class StudentenTerminController extends Controller {
 		//
 	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
+	public function destroy($tokenCode)
 	{
-		//
+		echo "hallo";
+// 		try {
+// 			$termin = Termin::find($tokenCode);
+// 			echo $termin->tokenCode;
+			
+// 		} catch (Exception $e) {
+// 			echo $e;
+// 		}
+		
 	}
 
 }

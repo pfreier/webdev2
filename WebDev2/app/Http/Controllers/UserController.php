@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Dozent;
 use Illuminate\Http\Request;
 
 class UserController extends Controller {
@@ -19,6 +20,7 @@ class UserController extends Controller {
 
 	public function index()
 	{
+
 		return User::all();
 	}
 
@@ -29,7 +31,20 @@ class UserController extends Controller {
 	 */
 	public function create()
 	{
-		
+		// 		echo "create called!";
+
+		// 		$nerd = new User;
+		// 		$nerd->name       = "ocak2";
+		// 		$nerd->email      = "test@t.de";
+		// 		$nerd->password = "test";
+
+		// 		echo "before save";
+
+		// 		$nerd->save();
+
+		// 		echo "saved";
+
+		return view('dozent.register');
 	}
 
 	/**
@@ -37,15 +52,40 @@ class UserController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		User::create(array(
-				'name' => Input::get('name'),
-				'email' => Input::get('email'),
-				'password' => Input::get('password')
-		));
-		
-		return Response::json(array('success' => true));
-		
+		try {
+
+			$user = new User;
+			$user->name       = $request->input('name');
+			$user->email      = $request->input('email');
+			$user->password = $request->input('password');
+
+
+
+			$user->save();
+
+			$dozent = new Dozent;
+			$dozent->vorname = $request->input('vorname');
+			$dozent->nachname = $request->input('name');
+			$dozent->userID = $user->id;
+			
+			$dozent->save();
+		}
+		catch (\Exception $e)
+		{
+			echo $e;
+		}
+
+	}
+
+	public function show($id){
+
+		return User::where('id', '=', $id)->get();
+	}
+	
+	public function delete($id){
+		$user = User::find($id);
+		$user->delete();
 	}
 }

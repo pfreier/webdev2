@@ -15,30 +15,35 @@ class DozentController extends Controller {
 	 */
 	public function index()
 	{
-// 		try{
-// 			$statusCode = 200;
-// 			$response = [
-// 					'dozents'  => []
-// 			];
+		// 		try{
+		// 			$statusCode = 200;
+		// 			$response = [
+		// 					'dozents'  => []
+		// 			];
 
-// 			$dozents = Dozent::all()->take(4);
+		// 			$dozents = Dozent::all()->take(4);
 
-// 			foreach($dozents as $dozent){
+		// 			foreach($dozents as $dozent){
 
-// 				$response['dozents'][] = [
-// 						'id' => $dozent->id,
-// 						'vorname' => $dozent->vorname,
-// 						'nachname' => $dozent->nachname,
-// 						'userID' => $dozent->userID,
-// 				];
-// 			}
+		// 				$response['dozents'][] = [
+		// 						'id' => $dozent->id,
+		// 						'vorname' => $dozent->vorname,
+		// 						'nachname' => $dozent->nachname,
+		// 						'userID' => $dozent->userID,
+		// 				];
+		// 			}
 
-// 		}catch (Exception $e){
-// 			$statusCode = 400;
-// 		}finally{
-// 			return Response::json($response, $statusCode);
-// 		}
-		return Dozent::all();
+		// 		}catch (Exception $e){
+		// 			$statusCode = 400;
+		// 		}finally{
+		// 			return Response::json($response, $statusCode);
+		// 		}
+		try {
+			return Dozent::all();
+		} catch (\Exception $e) {
+			echo $e;
+		}
+
 	}
 
 	/**
@@ -58,7 +63,7 @@ class DozentController extends Controller {
 	 */
 	public function store()
 	{
-	
+
 	}
 
 	/**
@@ -69,26 +74,26 @@ class DozentController extends Controller {
 	 */
 	public function show($id)
 	{
-		
-// 		try{
-// 			$dozent = Dozent::find($id);
-// 			$statusCode = 200;
-// 			$response = [ "dozent" => [
-// 					'id' => (int) $id,
-// 					'vorname' => (int) $dozent->user_id,
-// 					'nachname' => $dozent->title,
-// 					'userID' => $dozent->url
-// 			]];
-		
-// 		}catch(Exception $e){
-// 			$response = [
-// 					"error" => "File doesn`t exists"
-// 			];
-// 			$statusCode = 404;
-// 		}finally{
-// 			return Response::json($response, $statusCode);
-// 		}
-		
+
+		// 		try{
+		// 			$dozent = Dozent::find($id);
+		// 			$statusCode = 200;
+		// 			$response = [ "dozent" => [
+		// 					'id' => (int) $id,
+		// 					'vorname' => (int) $dozent->user_id,
+		// 					'nachname' => $dozent->title,
+		// 					'userID' => $dozent->url
+		// 			]];
+
+		// 		}catch(Exception $e){
+		// 			$response = [
+		// 					"error" => "File doesn`t exists"
+		// 			];
+		// 			$statusCode = 404;
+		// 		}finally{
+		// 			return Response::json($response, $statusCode);
+		// 		}
+
 		return Dozent::find($id);
 	}
 
